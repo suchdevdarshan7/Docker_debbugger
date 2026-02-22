@@ -1,0 +1,21 @@
+
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,                // important for pure type-checking servers
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx"],
+  "exclude": ["node_modules", "dist", "build"]
+}

@@ -1,20 +1,23 @@
-const express = require('express');
-const { getProducts } = require('./controller/products.controller');
+import express from 'express';
 const app = express();
 const port = 3000;
-const morgan = require('morgan');
-
+import productRoutes from './routes/product.routes.js';
+import morgan from 'morgan';
+import userRoutes from './routes/user.routes.js';
+import connect_db from './db/db_start.js';
 
 app.use(morgan('dev'));
 
-app.get ('/',(req,res) => {
+app.get('/', (req, res) => {
   res.send("Health Check Ok!");
 })
 
-app.get('/products',getProducts);
+app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/users', userRoutes)
 
-app.listen(port,()=>{
+app.listen(port, () => {
   console.log("The server is running in port 3000");
+  connect_db()
 })
 
 
